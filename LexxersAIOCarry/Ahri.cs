@@ -45,8 +45,8 @@ namespace UltimateCarry
             farmMenu.AddItem(new MenuItem("farmStartAtLevel", "Only AA until Level").SetValue(new Slider(8, 1, 18)));
 
             var drawMenu = _menu.AddSubMenu(new Menu("Drawing", "Drawing"));
-            drawMenu.AddItem(new MenuItem("drawQE", "Draw Q, E range").SetValue(new Circle(true, System.Drawing.Color.FromArgb(125, 0, 255, 0))));
-            drawMenu.AddItem(new MenuItem("drawW", "Draw W range").SetValue(new Circle(false, System.Drawing.Color.FromArgb(125, 0, 0, 255))));
+            drawMenu.AddItem(new MenuItem("drawQE", "Draw Q, E range").SetValue(new Circle(true, Render.Circle.FromArgb(125, 0, 255, 0))));
+            drawMenu.AddItem(new MenuItem("drawW", "Draw W range").SetValue(new Circle(false, Render.Circle.FromArgb(125, 0, 0, 255))));
             var dmgAfterComboItem = new MenuItem("DamageAfterCombo", "Draw Combo Damage").SetValue(true); //copied from esk0r Syndra
             drawMenu.AddItem(dmgAfterComboItem);
 
@@ -146,7 +146,7 @@ namespace UltimateCarry
 
             if (target != null)
             {
-                Vector2 predictedPos = Prediction.GetPrediction(target, _spellQ.Delay).UnitPosition; //correct pos currently not possible with spell acceleration
+                Vector3 predictedPos = Prediction.GetPrediction(target, _spellQ.Delay).UnitPosition; //correct pos currently not possible with spell acceleration
                 _spellQ.Speed = GetDynamicQSpeed(ObjectManager.Player.Distance(predictedPos));
                 _spellQ.CastIfHitchanceEquals(target, HitChance.High, Packets());
             }
