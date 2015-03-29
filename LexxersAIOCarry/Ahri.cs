@@ -45,8 +45,8 @@ namespace UltimateCarry
             farmMenu.AddItem(new MenuItem("farmStartAtLevel", "Only AA until Level").SetValue(new Slider(8, 1, 18)));
 
             var drawMenu = _menu.AddSubMenu(new Menu("Drawing", "Drawing"));
-            drawMenu.AddItem(new MenuItem("drawQE", "Draw Q, E range").SetValue(new Circle(true, Render.Circle.FromArgb(125, 0, 255, 0))));
-            drawMenu.AddItem(new MenuItem("drawW", "Draw W range").SetValue(new Circle(false, Render.Circle.FromArgb(125, 0, 0, 255))));
+            drawMenu.AddItem(new MenuItem("drawQE", "Draw Q, E range").SetValue(new Circle(true, Render.Circle.fromArgb(125, 0, 255, 0))));
+            drawMenu.AddItem(new MenuItem("drawW", "Draw W range").SetValue(new Circle(false, Render.Circle.fromArgb(125, 0, 0, 255))));
             var dmgAfterComboItem = new MenuItem("DamageAfterCombo", "Draw Combo Damage").SetValue(true); //copied from esk0r Syndra
             drawMenu.AddItem(dmgAfterComboItem);
 
@@ -67,12 +67,12 @@ namespace UltimateCarry
             dmgAfterComboItem.ValueChanged += delegate(object sender, OnValueChangeEventArgs eventArgs) { Utility.HpBarDamageIndicator.Enabled = eventArgs.GetNewValue<bool>(); };
 
             Drawing.OnDraw += Drawing_OnDraw;
-            Game.OnGameUpdate += Game_OnGameUpdate;
+            Game.OnUpdate += Game_OnUpdate;
 
             PluginLoaded();
         }
 
-        void Game_OnGameUpdate(EventArgs args)
+        void Game_OnUpdate(EventArgs args)
         {            
             switch (Program.Orbwalker.ActiveMode)
             {
@@ -146,7 +146,7 @@ namespace UltimateCarry
 
             if (target != null)
             {
-                Vector3 predictedPos = Prediction.GetPrediction(target, _spellQ.Delay).UnitPosition; //correct pos currently not possible with spell acceleration
+                Vector2 predictedPos = Prediction.GetPrediction(target, _spellQ.Delay).UnitPosition; //correct pos currently not possible with spell acceleration
                 _spellQ.Speed = GetDynamicQSpeed(ObjectManager.Player.Distance(predictedPos));
                 _spellQ.CastIfHitchanceEquals(target, HitChance.High, Packets());
             }
