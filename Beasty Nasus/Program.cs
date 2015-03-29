@@ -339,7 +339,7 @@ class Program
             return;
         {
 
-            if (CountEnemiesInRange(ObjectManager.Player, (int)Hydra.Range) >= 1)
+            if (Utility.CountEnemiesInRange(ObjectManager.Player, (int)Hydra.Range) >= 1)
             {
                 Hydra.Cast();
             }
@@ -352,7 +352,7 @@ class Program
             return;
         {
 
-            if (Utility.CountEnemysInRange(ObjectManager.Player, (int)Hydra.Range) >= 1)
+            if (Utility.CountEnemiesInRange(ObjectManager.Player, (int)Hydra.Range) >= 1)
             {
                 Tiamat.Cast();
             }
