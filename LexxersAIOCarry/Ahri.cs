@@ -146,13 +146,14 @@ namespace UltimateCarry
 
             if (target != null)
             {
-                Vector3 predictedPos = Prediction.GetPrediction(target, _spellQ.Delay).UnitPosition; //correct pos currently not possible with spell acceleration
+                Vector2 predictedPos = Prediction.GetPrediction(target, _spellQ.Delay).UnitPosition; //correct pos currently not possible with spell acceleration
                 _spellQ.Speed = GetDynamicQSpeed(ObjectManager.Player.Distance(predictedPos));
                 _spellQ.CastIfHitchanceEquals(target, HitChance.High, Packets());
             }
         }
 
         void CastQ(Vector2 pos)
+        
         {
             if (!_spellQ.IsReady())
                 return;
@@ -214,7 +215,7 @@ namespace UltimateCarry
             if (Program.Helper.EnemyTeam.Any(x => x.Distance(ObjectManager.Player.ServerPosition) < 500)) //any enemies around me?
                 return true;
 
-            Vector3 mousePos = Game.CursorPos;
+            Vector2 mousePos = Game.CursorPos;
 
             var enemiesNearMouse = Program.Helper.EnemyTeam.Where(x => x.Distance(ObjectManager.Player.ServerPosition) < _spellR.Range && x.Distance(mousePos) < 650);
 
