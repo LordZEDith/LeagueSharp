@@ -106,14 +106,14 @@ class Program
         Drawing.OnDraw += Drawing_OnDraw;
         AntiGapcloser.OnEnemyGapcloser += AntiGapcloser_OnEnemyGapcloser;
 
-        Game.OnGameUpdate += Game_OnGameUpdate;
+        Game.OnUpdate += Game_OnUpdate;
 
         Game.PrintChat("Beasty Nasus 1.01 By Bolsudo.");
         Game.PrintChat("Please post bugs in the thread. Thank you");
     }
 
 
-    private static void Game_OnGameUpdate(EventArgs args)
+    private static void Game_OnUpdate(EventArgs args)
     {
 
         if (Player.IsDead)
