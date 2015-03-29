@@ -106,7 +106,7 @@ class Program
         Drawing.OnDraw += Drawing_OnDraw;
         AntiGapcloser.OnEnemyGapcloser += AntiGapcloser_OnEnemyGapcloser;
 
-        Game.OnGameUpdate += Game_OnGameUpdate;
+        Game.OnUpdate += Game_OnGameUpdate;
 
         Game.PrintChat("Beasty Nasus 1.01 By Bolsudo.");
         Game.PrintChat("Please post bugs in the thread. Thank you");
