@@ -182,12 +182,12 @@ class Program
         if (E.IsReady())
         {
             // draw Aqua circle around the player
-            Utility.DrawCircle(Player.Position, Q.Range, Color.Aqua);
+            Render.Circle(Player.Position, Q.Range, Color.Aqua);
         }
         else
         {
             // draw DarkRed circle around the player while on cd
-            Utility.DrawCircle(Player.Position, Q.Range, Color.DarkRed);
+            Render.Circle(Player.Position, Q.Range, Color.DarkRed);
         }
     }
 
@@ -339,7 +339,7 @@ class Program
             return;
         {
 
-            if (Utility.CountEnemysInRange(ObjectManager.Player, (int)Hydra.Range) >= 1)
+            if (CountEnemiesInRange(ObjectManager.Player, (int)Hydra.Range) >= 1)
             {
                 Hydra.Cast();
             }
@@ -365,7 +365,7 @@ class Program
 
         {
 
-            if (Utility.CountEnemysInRange(ObjectManager.Player, (int)E.Range) >= Program.Menu.Item("AutoREA").GetValue<Slider>().Value)
+            if (CountEnemiesInRange(ObjectManager.Player, (int)E.Range) >= Program.Menu.Item("AutoREA").GetValue<Slider>().Value)
             {
                 R.Cast();
             }
