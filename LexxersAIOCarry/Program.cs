@@ -18,10 +18,10 @@ namespace UltimateCarry
 		// ReSharper disable once UnusedParameter.Local
 		private static void Main(string[] args)
 		{
-			CustomEvents.Game.OnGameLoad  += Game_OnGameLoad;
+			CustomEvents.Game.OnGameUpdate  += Game_OnGameUpdate;
 		}
 
-		private static void Game_OnGameLoad(EventArgs args)
+		private static void Game_OnGameUpdate(EventArgs args)
 		{
 			//AutoUpdater.InitializeUpdater();
 			Chat.Print("Ultimate Carry Version by Lexxes updated by Bolsudo for patch 5.2 loading ...");
