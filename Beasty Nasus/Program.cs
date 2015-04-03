@@ -182,12 +182,12 @@ class Program
         if (E.IsReady())
         {
             // draw Aqua circle around the player
-            Utility.Render.Circle(Player.Position, Q.Range, Color.Aqua);
+            Drawing.DrawCircle(Player.Position, Q.Range, Color.Aqua);
         }
         else
         {
             // draw DarkRed circle around the player while on cd
-            Utility.Render.Circle(Player.Position, Q.Range, Color.DarkRed);
+            Drawing.DrawCircle(Player.Position, Q.Range, Color.DarkRed);
         }
     }
 
