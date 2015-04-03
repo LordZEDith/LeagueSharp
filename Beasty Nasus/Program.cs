@@ -339,7 +339,7 @@ class Program
             return;
         {
 
-            if (ObjectManager.Player.CountEnemiesInRange(ObjectManager.Player, (int)Hydra.Range) >= 1)
+            if (target.CountEnemiesInRange(ObjectManager.Player, (int)Hydra.Range) >= 1)
             {
                 Hydra.Cast();
             }
@@ -352,7 +352,7 @@ class Program
             return;
         {
 
-            if (ObjectManager.Player.CountEnemiesInRange(ObjectManager.Player, (int)Hydra.Range) >= 1)
+            if (target.CountEnemiesInRange(ObjectManager.Player, (int)Hydra.Range) >= 1)
             {
                 Tiamat.Cast();
             }
@@ -365,7 +365,7 @@ class Program
 
         {
 
-            if (ObjectManager.Player.CountEnemiesInRange(ObjectManager.Player, (int)E.Range) >= Program.Menu.Item("AutoREA").GetValue<Slider>().Value)
+            if (target.CountEnemiesInRange(ObjectManager.Player, (int)E.Range) >= Program.Menu.Item("AutoREA").GetValue<Slider>().Value)
             {
                 R.Cast();
             }
